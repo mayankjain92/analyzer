@@ -44,7 +44,7 @@ export default function SignIn() {
   function onSubmit(data) {
     console.log(data);
     // Handle form submission
-    router.push("/home");
+    router.push("/dashboard");
   }
 
   return (
