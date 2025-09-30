@@ -5,7 +5,7 @@ export default function NavBar() {
     <nav className="bg-gray-800 p-4 text-white flex justify-between items-center">
       <h1 className="text-xl font-bold">Business Analyzer</h1>
       <div className="space-x-4">
-        <Link href="/home" className="hover:underline">
+        <Link href="/dashboard" className="hover:underline">
           Dashboard
         </Link>
         <Link href="/upload" className="hover:underline">

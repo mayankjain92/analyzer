@@ -1,12 +1,14 @@
 "use client";
 import { useState } from "react";
-import NavBar from "@/components/ui/NavBar";
+import { useRouter } from "next/navigation";
+import NavBar from "@/components/NavBar";
 import { uploadFile } from "@/lib/utils";
 
 export default function UploadPage() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
   const [uploading, setUploading] = useState(false);
+  const router = useRouter();
 
   const onFileChange = (e) => setFile(e.target.files[0]);
 
@@ -21,9 +23,10 @@ export default function UploadPage() {
     try {
       const res = await uploadFile(formData);
       setMessage("File uploaded successfully");
+      // Redirect to dashboard after successful upload
+      router.push("/dashboard");
     } catch (error) {
       setMessage("Upload failed, please try again.");
-    } finally {
       setUploading(false);
     }
   };
@@ -33,7 +36,11 @@ export default function UploadPage() {
       <NavBar />
       <main className="max-w-3xl mx-auto p-6 bg-white rounded shadow mt-8">
         <h1 className="text-2xl font-semibold mb-6">Upload Business Data</h1>
-        <form onSubmit={onSubmit} className="space-y-6">
+        <form
+          onSubmit={onSubmit}
+          className="space-y-6"
+          encType="multipart/form-data"
+        >
           <input
             type="file"
             onChange={onFileChange}

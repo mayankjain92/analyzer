@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { CgDarkMode } from "react-icons/cg";
 
 export default function Layout({ children }) {
   const [darkMode, setDarkMode] = useState(true);
@@ -24,7 +25,7 @@ export default function Layout({ children }) {
     <div
       className={
         darkMode
-          ? "bg-[#393E46] text-gray-100 min-h-screen flex flex-col"
+          ? "bg-gradient-to-b from-black via-[#0a0a0a] to-black text-gray-100 min-h-screen flex flex-col"
           : "bg-gray-50 text-gray-900 min-h-screen flex flex-col"
       }
     >
@@ -38,41 +39,55 @@ export default function Layout({ children }) {
 function Header({ darkMode, toggleTheme }) {
   return (
     <header
-      className={`flex justify-between items-center p-6 shadow-md ${
-        darkMode ? "bg-[#222831]" : "bg-white"
+      className={`flex justify-between items-center px-8 py-4 shadow-lg rounded-b-2xl sticky top-0 z-50 ${
+        darkMode
+          ? "bg-black/40 border-b border-white/10 backdrop-blur-lg"
+          : "bg-white/80 border-b border-gray-200 backdrop-blur-md"
       }`}
     >
-      <h1 className="text-2xl font-bold tracking-wide">Business Analyzer</h1>
-      <nav className="space-x-6">
-        <a
-          href="/"
-          className="px-1 py-1 rounded bg-black/40 border-none shadow-xl backdrop-blur-md ring-1 ring-black/30  text-white text-md font-bold hover:bg-blue-950/90 transition cursor-default max-w-sm mx-2"
-        >
-          Home
-        </a>
-        <a
-          href="/login"
-          className="px-1 py-1 rounded bg-black/40 border-none shadow-xl backdrop-blur-md ring-1 ring-black/30  text-white text-md font-bold hover:bg-blue-950/90 transition cursor-default max-w-sm mx-2"
-        >
-          Login
-        </a>
-        <a
-          href="/login"
-          className="px-1 py-1 rounded bg-black/40 border-none shadow-xl backdrop-blur-md ring-1 ring-black/30  text-white text-md font-bold hover:bg-blue-950/90 transition cursor-default max-w-sm mx-2"
-        >
-          Sign Up
-        </a>
+      {/* Logo */}
+      <h1 className="text-2xl font-extrabold tracking-wide cursor-default">
+        Business Analyzer
+      </h1>
+
+      {/* Navigation */}
+      <nav className="hidden md:flex space-x-8">
+        {[
+          { name: "Home", href: "/" },
+          { name: "Login", href: "/login" },
+          { name: "Sign Up", href: "/signup" },
+        ].map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            className={`relative font-medium transition-colors duration-300 ${
+              darkMode
+                ? "text-gray-200 hover:text-white"
+                : "text-gray-800 hover:text-black"
+            }`}
+          >
+            {link.name}
+            {/* Underline animation */}
+            <span
+              className={`absolute left-0 -bottom-1 h-[2px] w-0 transition-all duration-300 ${
+                darkMode ? "bg-white" : "bg-gray-800"
+              } group-hover:w-full`}
+            ></span>
+          </a>
+        ))}
       </nav>
+
+      {/* Theme Toggle */}
       <button
         onClick={toggleTheme}
         aria-label="Toggle dark/light theme"
-        className={`ml-4 p-2 rounded-full focus:outline-none focus:ring ${
+        className={`ml-6 p-2 rounded-full focus:outline-none focus:ring transition-transform duration-300 hover:rotate-12 ${
           darkMode
-            ? "bg-yellow-300 text-gray-900 hover:bg-yellow-400"
-            : "bg-yellow-500 text-gray-50 hover:bg-yellow-600"
-        } transition`}
+            ? "bg-white text-gray-900 hover:bg-white/60"
+            : "bg-black text-gray-50 hover:bg-black/60"
+        }`}
       >
-        {darkMode ? "🌙" : "☀️"}
+        {darkMode ? <CgDarkMode /> : <CgDarkMode />}
       </button>
     </header>
   );
@@ -81,8 +96,10 @@ function Header({ darkMode, toggleTheme }) {
 function Footer({ darkMode }) {
   return (
     <footer
-      className={`text-center p-6 mt-12 ${
-        darkMode ? "bg-gray-800 text-gray-400" : "bg-gray-100 text-gray-700"
+      className={`text-center p-6 mt-12 rounded-t-2xl shadow-inner ${
+        darkMode
+          ? "bg-black/40 text-gray-400 border-t border-white/10 backdrop-blur-lg"
+          : "bg-gray-100 text-gray-700 border-t border-gray-200"
       }`}
     >
       <p>© 2025 Business Analyzer. All rights reserved.</p>

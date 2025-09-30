@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import NavBar from "@/components/ui/NavBar";
-import ChartComponent from "@/components/ui/ChartComponent";
-import AIInsightPanel from "@/components/ui/AIInsightPanel";
+import NavBar from "@/components/NavBar";
+import ChartComponent from "@/components/ChartComponent";
+import AIInsightPanel from "@/components/AIInsightPanel";
 import { getDashboardMetrics, getQuickInsight } from "@/lib/utils";
 
 export default function DashboardPage() {
