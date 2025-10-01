@@ -66,7 +66,7 @@ export default function SignIn() {
               <div className="space-y-3">
                 <Button
                   variant="outline"
-                  className="w-full bg-white/5 hover:bg-white/10 text-white border-white/10 hover:border-white/20 rounded-xl h-12 font-medium backdrop-blur-sm transition-all duration-200 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30"
+                  className="w-full bg-white/5 hover:bg-white/10 text-white hover:text-white/80 border-white/10 hover:border-white/20 rounded-xl h-12 font-medium backdrop-blur-sm transition-all duration-200 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30"
                   onClick={() => console.log("Sign in with Google")}
                 >
                   {/* Google Icon */}
@@ -74,7 +74,7 @@ export default function SignIn() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full bg-white/5 hover:bg-white/10 text-white border-white/10 hover:border-white/20 rounded-xl h-12 font-medium backdrop-blur-sm transition-all duration-200 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30"
+                  className="w-full bg-white/5 hover:bg-white/10 text-white hover:text-white/80 border-white/10 hover:border-white/20 rounded-xl h-12 font-medium backdrop-blur-sm transition-all duration-200 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-black/30"
                   onClick={() => console.log("Sign in with GitHub")}
                 >
                   {/* GitHub Icon */}
@@ -158,7 +158,7 @@ export default function SignIn() {
                   {"Don't have an account? "}
                 </span>
                 <Link
-                  href="/sign-up"
+                  href="/signup"
                   className="text-white font-medium hover:text-white/80 transition-colors"
                 >
                   Sign Up Now
