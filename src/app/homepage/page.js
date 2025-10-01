@@ -35,17 +35,23 @@ export default function HomePage() {
             numbers.**"
           </p>
           <div className="space-x-8 mb-6">
-            <a
+            {/* <a
               href="/login"
-              className="inline-block bg-white/90 text-black font-semibold px-10 py-4 rounded-xl shadow-lg hover:bg-white transition"
+              className="inline-block bg-white/90 text-black font-semibold px-10 py-4 rounded-xl shadow-lg hover:bg-white/70 transition"
             >
               Login
             </a>
             <a
               href="/login"
-              className="inline-block bg-white/90 text-black font-semibold px-10 py-4 rounded-xl shadow-lg hover:bg-white transition"
+              className="inline-block bg-white/90 text-black font-semibold px-10 py-4 rounded-xl shadow-lg hover:bg-white/70 transition"
             >
               Sign Up
+            </a> */}
+            <a
+              href="/dashboard"
+              className="inline-block bg-white/90 text-black font-semibold px-8 py-4 text-2xl rounded-xl shadow-lg hover:bg-white/70 transition"
+            >
+              Get Started
             </a>
           </div>
         </div>

@@ -51,19 +51,18 @@ function Header({ darkMode, toggleTheme }) {
       </h1>
 
       {/* Navigation */}
-      <nav className="hidden md:flex space-x-8">
+      <nav className="hidden md:flex space-x-6">
         {[
-          { name: "Home", href: "/" },
           { name: "Login", href: "/login" },
           { name: "Sign Up", href: "/signup" },
         ].map((link) => (
           <a
             key={link.name}
             href={link.href}
-            className={`relative font-medium transition-colors duration-300 ${
+            className={`relative font-medium transition-colors rounded px-1.5 py-1 duration-300 ${
               darkMode
-                ? "text-gray-200 hover:text-white"
-                : "text-gray-800 hover:text-black"
+                ? "text-black bg-white hover:bg-white/70"
+                : "text-white bg-black hover:bg-black/70"
             }`}
           >
             {link.name}
