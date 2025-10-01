@@ -61,8 +61,8 @@ function Header({ darkMode, toggleTheme }) {
             href={link.href}
             className={`relative font-medium transition-colors rounded px-1.5 py-1 duration-300 ${
               darkMode
-                ? "text-black bg-white hover:text-white"
-                : "text-white bg-black hover:text-black"
+                ? "text-black bg-white hover:bg-white/70"
+                : "text-white bg-black hover:bg-black/70"
             }`}
           >
             {link.name}
